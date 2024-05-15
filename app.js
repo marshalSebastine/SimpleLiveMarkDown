@@ -3,20 +3,14 @@ const path = require('path');
 const compress = require('compression');
 const { createServer } = require('node:http');
 const { Server } = require('socket.io');
-
+const socketListener = require('./socketlistener');
 
 const app = express();
 const server = createServer(app);
 const io = new Server(server);
 
 
-io.on("connection", (socket) => {
-    console.log("socket connected", socket);
-
-    socket.on("close", (reason) => {
-        console.error("socked closed due to reason", reason);
-    })
-})
+io.on("connection", socketListener)
 
 app.set('port', process.env.PORT || 8080)
 app.set('bind-address', process.env.BIND_ADDRESS || 'localhost')
@@ -42,9 +36,7 @@ app.get('*', (req, res) => {
 });
 
 
-io.on('connection', (socket) => {
-    console.log('a user connected');
-});
+io.on('connection', socketListener);
 
 // app.use(serveStatic(path.join(__dirname, '/public')))
 
