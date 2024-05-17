@@ -2,11 +2,11 @@ const MdParser = require('./utils/mdparser');
 
 const socketCallback = (socket) => {
 
-    console.log('a client connected', socket.id);
+    console.debug('a client connected', socket.id);
 
 
     socket.on('parse_markdown', (md) => {
-        console.log("markdown valu receved: " + md)
+        console.debug("markdown value receved: " + md)
         socket.emit('parsed_html', MdParser.parseToHtml(md))
     })
 
@@ -25,7 +25,7 @@ const socketCallback = (socket) => {
     })
 
     socket.conn.on('close', (reason) => {
-        console.log('client ' + socket.id + 'closed with reason ' + reason);
+        console.debug('client ' + socket.id + 'closed with reason ' + reason);
     })
 
 
