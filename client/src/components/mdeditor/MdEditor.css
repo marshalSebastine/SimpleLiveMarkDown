@@ -1,0 +1,20 @@
+.textareashape {
+    box-sizing: border-box;
+    width: 100%;
+    flex-grow: 1;
+    margin: 0;
+}
+
+textarea:focus {
+    outline: #4e5457;
+}
+
+textarea {
+    border: unset;
+    resize: none;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #4e5457;
+    color: rgb(255, 255, 213);
+    font-size: 15px;
+    padding: 10px 0px 0px 10px;
+}

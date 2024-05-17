@@ -1,0 +1,12 @@
+.projectnamewrapper {
+  width: 100%;
+  padding: 24px;
+  font-family: 'Poetsen';
+  font-size: xx-large;
+  font-weight: 500;
+  color: #ffffd5b5;
+}
+.outermostwrapper {
+  display: flex;
+  flex-direction: column;
+}
